@@ -1,5 +1,4 @@
-﻿
-module myToDoApp {
+﻿module myToDoApp {
     export class config {
 
         constructor($routeProvider: ng.route.IRouteProvider) {
@@ -16,6 +15,6 @@ module myToDoApp {
 myToDoApp.config.$inject = ['$routeProvider'];
 
 angular.module('myToDoApp',
-    ['ngRoute', 'firebase'])
+    ['ngRoute', 'firebase', 'toaster'])
     .config(myToDoApp.config);
 

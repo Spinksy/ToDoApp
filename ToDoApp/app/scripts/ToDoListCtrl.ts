@@ -2,6 +2,7 @@
 /// <reference path="../../scripts/typings/angularjs/angular.d.ts" />
 /// <reference path="../../scripts/typings/firebase/firebase.d.ts" />
 
+
 module myToDoApp {
 
     export interface IToDoListCtrl extends ng.IScope{
@@ -17,10 +18,10 @@ module myToDoApp {
 
     export class ToDoListCtrl {
 
-        public static $inject = ['$scope', 'toDoService'];
+        public static $inject = ['$scope', 'toDoService', 'toaster'];
 
         constructor(
-            $scope: myToDoApp.IToDoListCtrl, toDoService: myToDoApp.toDoService)
+            $scope: myToDoApp.IToDoListCtrl, toDoService: myToDoApp.toDoService, toaster: any)
         {
 
             $scope.toDos = toDoService.get();
@@ -28,6 +29,8 @@ module myToDoApp {
 
             $scope.addToDo = function () {
                 toDoService.post($scope.toDo);
+                toaster.pop('success', $scope.toDo.name, "Saved successfully");
+                //Notifier.success($scope.toDo.name + " Saved");
                 $scope.toDo = { name: undefined, description: undefined };
             };
         }
