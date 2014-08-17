@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="myToDoApp">
+<head>
+    <title>My ToDo App</title>
+    <meta name="viewport" content="width=device-width">
+
+    <!-- AngularJs References -->
+    <script src="Scripts/angular.min.js"></script>
+    <script src="Scripts/angular-route.min.js"></script>
+
+    <!-- Bootstrap -->
+    <link href="Content/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- myStyles css -->
+    <link href="styles/myStyles.css" rel="stylesheet" />
+
+</head>
+<body>
+    <!--<input type="text" ng-model="testBind"/>
+    <span>{{testBind}}</span>-->
+
+    <div class="container">
+        <div class="header">
+            <ul class="nav nav-pills pull-right">
+                <li class="active"><a ng-href="#">ToDos</a></li>
+                <li><a ng-href="#/about">About</a></li>
+                <li><a ng-href="#/upload">Contact</a></li>
+            </ul>
+            <h3 class="text-muted">myToDos</h3>
+        </div>
+
+        <div ng-view=""></div>
+
+        <div class="footer">
+            <p><span class="glyphicon glyphicon-copyright-mark"></span> glennspinks</p>
+        </div>
+
+        <!-- App References -->
+        <script src="app/app.js"></script>
+        <script src="app/services/toDoService.js"></script>
+        <script src="app/scripts/ToDoListCtrl.js"></script>
+
+        <!-- JQuery Bootstrap References -->
+        <script src="Scripts/jquery-1.9.0.min.js"></script>
+        <script src="Scripts/bootstrap.js"></script>
+
+        <!-- FireBase References -->
+        <script src="https://cdn.firebase.com/js/client/1.0.18/firebase.js"></script>
+        <script src="https://cdn.firebase.com/libs/angularfire/0.8.0/angularfire.min.js"></script>
+</body>
+</html>
