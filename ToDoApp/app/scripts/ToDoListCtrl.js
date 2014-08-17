@@ -11,16 +11,19 @@ var myToDoApp;
     myToDoApp.toDo = toDo;
 
     var ToDoListCtrl = (function () {
-        function ToDoListCtrl($scope, toDoService) {
+        function ToDoListCtrl($scope, toDoService, toaster) {
             $scope.toDos = toDoService.get();
             $scope.toDo = new toDo();
 
             $scope.addToDo = function () {
                 toDoService.post($scope.toDo);
+                toaster.pop('success', $scope.toDo.name, "Saved successfully");
+
+                //Notifier.success($scope.toDo.name + " Saved");
                 $scope.toDo = { name: undefined, description: undefined };
             };
         }
-        ToDoListCtrl.$inject = ['$scope', 'toDoService'];
+        ToDoListCtrl.$inject = ['$scope', 'toDoService', 'toaster'];
         return ToDoListCtrl;
     })();
     myToDoApp.ToDoListCtrl = ToDoListCtrl;
