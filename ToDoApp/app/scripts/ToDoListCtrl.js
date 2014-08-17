@@ -17,16 +17,14 @@ var myToDoApp;
 
             $scope.addToDo = function () {
                 toDoService.post($scope.toDo);
-                alert("Saved:" + $scope.toDo.title);
-                $scope.toDo = { title: undefined, description: undefined };
+                $scope.toDo = { name: undefined, description: undefined };
             };
         }
+        ToDoListCtrl.$inject = ['$scope', 'toDoService'];
         return ToDoListCtrl;
     })();
     myToDoApp.ToDoListCtrl = ToDoListCtrl;
 })(myToDoApp || (myToDoApp = {}));
-
-myToDoApp.ToDoListCtrl.$inject = ['$scope', 'toDoService'];
 
 angular.module('myToDoApp').controller('ToDoListCtrl', myToDoApp.ToDoListCtrl);
 //# sourceMappingURL=ToDoListCtrl.js.map

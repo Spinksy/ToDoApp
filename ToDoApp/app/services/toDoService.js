@@ -1,13 +1,15 @@
 ﻿/// <reference path="../../scripts/typings/firebase/firebase.d.ts" />
 /// <reference path="../../scripts/typings/angularjs/angular.d.ts" />
+/// <reference path="../../scripts/typings/jquery/jquery.d.ts" />
 var myToDoApp;
 (function (myToDoApp) {
     var toDoService = (function () {
+        //Constructor
         function toDoService($firebase) {
             this.$firebase = $firebase;
-            this.firebaseResource = this.$firebase(new Firebase("https://scorching-fire-1021.firebaseio.com/ToDoApp/data/todo"));
-            //To Do Resource
-            this.todoResource = this.firebaseResource.$asArray();
+            //Private properties
+            this.todoResource = this.$firebase(new Firebase("https://scorching-fire-1021.firebaseio.com/ToDoApp/data/todo")).$asArray();
+            //Implement Interface methods
             this.get = function () {
                 return this.todoResource;
             };
@@ -21,12 +23,11 @@ var myToDoApp;
                 this.todoResource.$remove(toDo);
             };
         }
+        toDoService.$inject = ['$firebase'];
         return toDoService;
     })();
     myToDoApp.toDoService = toDoService;
 })(myToDoApp || (myToDoApp = {}));
-
-myToDoApp.toDoService.$inject = ['$firebase'];
 
 angular.module('myToDoApp').service('toDoService', myToDoApp.toDoService);
 //# sourceMappingURL=toDoService.js.map

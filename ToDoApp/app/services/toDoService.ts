@@ -1,5 +1,6 @@
 ﻿/// <reference path="../../scripts/typings/firebase/firebase.d.ts" />
 /// <reference path="../../scripts/typings/angularjs/angular.d.ts" />
+/// <reference path="../../scripts/typings/jquery/jquery.d.ts" />
 
 module myToDoApp {
 
@@ -12,14 +13,17 @@ module myToDoApp {
 
     export class toDoService implements IToDoService {
 
-        private firebaseResource = this.$firebase(new Firebase("https://scorching-fire-1021.firebaseio.com/ToDoApp/data/todo"));
+        //Inject module dependencies
+        public static $inject = ['$firebase'];
 
+        //Constructor
         constructor(private $firebase: any) {
         }
 
-        //To Do Resource
-        todoResource = this.firebaseResource.$asArray();
+        //Private properties
+        private todoResource = this.$firebase(new Firebase("https://scorching-fire-1021.firebaseio.com/ToDoApp/data/todo")).$asArray();
 
+        //Implement Interface methods       
         get = function () {
             return this.todoResource;
         }
@@ -37,7 +41,5 @@ module myToDoApp {
         };
     }
 }
-
-myToDoApp.toDoService.$inject = ['$firebase'];
 
 angular.module('myToDoApp').service('toDoService', myToDoApp.toDoService);

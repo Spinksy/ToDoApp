@@ -11,27 +11,28 @@ module myToDoApp {
     }
 
     export class toDo {
-        title: string;
+        name: string;
         description: string;
     }
 
     export class ToDoListCtrl {
-        constructor($scope: myToDoApp.IToDoListCtrl, toDoService: myToDoApp.toDoService) {
+
+        public static $inject = ['$scope', 'toDoService'];
+
+        constructor(
+            $scope: myToDoApp.IToDoListCtrl, toDoService: myToDoApp.toDoService)
+        {
 
             $scope.toDos = toDoService.get();
             $scope.toDo = new toDo();
 
             $scope.addToDo = function () {
                 toDoService.post($scope.toDo);
-                alert("Saved:" + $scope.toDo.title);
-                $scope.toDo = { title: undefined, description: undefined };
+                $scope.toDo = { name: undefined, description: undefined };
             };
-
-            
         }
     }
 } 
 
-myToDoApp.ToDoListCtrl.$inject = ['$scope', 'toDoService'];
-
-angular.module('myToDoApp').controller('ToDoListCtrl', myToDoApp.ToDoListCtrl);
+angular.module('myToDoApp')
+    .controller('ToDoListCtrl', myToDoApp.ToDoListCtrl);
