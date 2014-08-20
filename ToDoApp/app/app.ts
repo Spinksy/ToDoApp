@@ -15,6 +15,6 @@
 myToDoApp.config.$inject = ['$routeProvider'];
 
 angular.module('myToDoApp',
-    ['ngRoute', 'firebase', 'toaster'])
+    ['ngRoute', 'firebase', 'toaster', 'Resources'])
     .config(myToDoApp.config);
 

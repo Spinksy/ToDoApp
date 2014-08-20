@@ -15,8 +15,15 @@
 <br />
 <div class="row marketing" ng-show="toDos.length">
     <div class="col-lg-6" ng-repeat="toDo in toDos">
-        <h4>{{toDo.name}}</h4>
-        <p>{{toDo.description}}</p>
+        <div class="toDo" ng-mouseenter="showActions = true" ng-mouseleave="showActions = false">
+            <h4>{{toDo.name}}</h4>
+            <p>{{toDo.description}}</p>
+            <div class="btn-group btn-group-xs" ng-show="showActions" style="position: absolute; top: 10px; right: 20px;">
+                <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-edit"></span></button>
+                <button type="button" class="btn btn-default" ng-click="deleteToDo(toDo)"><span class="glyphicon glyphicon-remove"></span></button>
+            </div>
+        </div>
+
     </div>
 </div>
 <div class="jumbotron" ng-hide="toDos.length"><h4>No ToDos created</h4></div>
