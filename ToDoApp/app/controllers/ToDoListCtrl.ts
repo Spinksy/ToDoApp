@@ -10,6 +10,7 @@ module myToDoApp {
         addToDo(): void;
         deleteToDo(toDo: Resources.IToDo): void;
         editToDo(toDo: Resources.IToDo): void;
+        //showActions: boolean;
     }
 
     export class ToDoListCtrl {
@@ -19,6 +20,8 @@ module myToDoApp {
         constructor(
             $scope: myToDoApp.IToDoListCtrl, toDoService: myToDoApp.toDoService, toaster: any)
         {
+            //$scope.showActions = false;
+
             //Get ToDos
             $scope.toDos = toDoService.get();
 
@@ -36,13 +39,14 @@ module myToDoApp {
             $scope.deleteToDo = function (toDo) {
                 var deleteName = toDo.name;
                 toDoService.delete(toDo);
-                toaster.pop('warning', deleteName, "Removed successfully");
+                toaster.pop('error', deleteName, "Removed successfully");
             };
 
             //Update ToDo
             $scope.editToDo = function (toDo) {
                 toDoService.update(toDo);
                 toaster.pop('success', $scope.toDo.name, "Successfully updated");
+
            }
         }
     }

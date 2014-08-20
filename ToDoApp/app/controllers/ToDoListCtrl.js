@@ -5,6 +5,7 @@ var myToDoApp;
 (function (myToDoApp) {
     var ToDoListCtrl = (function () {
         function ToDoListCtrl($scope, toDoService, toaster) {
+            //$scope.showActions = false;
             //Get ToDos
             $scope.toDos = toDoService.get();
 
@@ -22,7 +23,7 @@ var myToDoApp;
             $scope.deleteToDo = function (toDo) {
                 var deleteName = toDo.name;
                 toDoService.delete(toDo);
-                toaster.pop('warning', deleteName, "Removed successfully");
+                toaster.pop('error', deleteName, "Removed successfully");
             };
 
             //Update ToDo
