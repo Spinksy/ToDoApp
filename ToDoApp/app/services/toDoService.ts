@@ -13,10 +13,8 @@ module myToDoApp {
 
     export class toDoService implements IToDoService {
 
-        //Inject module dependencies
         public static $inject = ['$firebase'];
 
-        //Constructor
         constructor(private $firebase: any) {
         }
 

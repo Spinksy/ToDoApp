@@ -2,18 +2,14 @@
 /// <reference path="../../scripts/typings/angularjs/angular.d.ts" />
 /// <reference path="../../scripts/typings/firebase/firebase.d.ts" />
 
-
 module myToDoApp {
 
     export interface IToDoListCtrl extends ng.IScope{
+        toDos: Resources.IToDo[];
+        toDo: Resources.IToDo;
         addToDo(): void;
-        toDos: myToDoApp.toDo[];
-        toDo: myToDoApp.toDo;
-    }
-
-    export class toDo {
-        name: string;
-        description: string;
+        deleteToDo(toDo: Resources.IToDo): void;
+        editToDo(toDo: Resources.IToDo): void;
     }
 
     export class ToDoListCtrl {
@@ -23,16 +19,31 @@ module myToDoApp {
         constructor(
             $scope: myToDoApp.IToDoListCtrl, toDoService: myToDoApp.toDoService, toaster: any)
         {
-
+            //Get ToDos
             $scope.toDos = toDoService.get();
-            $scope.toDo = new toDo();
 
+            //Get Todo
+            $scope.toDo = new Resources.toDo();
+
+            //Post Todo
             $scope.addToDo = function () {
                 toDoService.post($scope.toDo);
                 toaster.pop('success', $scope.toDo.name, "Saved successfully");
-                //Notifier.success($scope.toDo.name + " Saved");
                 $scope.toDo = { name: undefined, description: undefined };
             };
+
+            //Delete Todo
+            $scope.deleteToDo = function (toDo) {
+                var deleteName = toDo.name;
+                toDoService.delete(toDo);
+                toaster.pop('warning', deleteName, "Removed successfully");
+            };
+
+            //Update ToDo
+            $scope.editToDo = function (toDo) {
+                toDoService.update(toDo);
+                toaster.pop('success', $scope.toDo.name, "Successfully updated");
+           }
         }
     }
 } 

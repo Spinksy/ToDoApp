@@ -17,6 +17,7 @@
     <div class="col-lg-6" ng-repeat="toDo in toDos">
         <h4>{{toDo.name}}</h4>
         <p>{{toDo.description}}</p>
+        <button ng-click="deleteToDo(toDo)">Remove</button>
     </div>
 </div>
 <div class="jumbotron" ng-hide="toDos.length"><h4>No ToDos created</h4></div>

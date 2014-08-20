@@ -4,7 +4,6 @@
 var myToDoApp;
 (function (myToDoApp) {
     var toDoService = (function () {
-        //Constructor
         function toDoService($firebase) {
             this.$firebase = $firebase;
             //Private properties
