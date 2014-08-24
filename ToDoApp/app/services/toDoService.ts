@@ -9,6 +9,8 @@ module myToDoApp {
         post(toDo: any): void;
         update(toDo: any): void;
         delete(toDo: any): void;
+        getToDo(id: string): Resources.IToDo;
+        dataLoaded: boolean;
     }
 
     export class toDoService implements IToDoService {
@@ -16,13 +18,17 @@ module myToDoApp {
         public static $inject = ['$firebase'];
 
         constructor(private $firebase: any) {
+
         }
 
         //Private properties
         private todoResource = this.$firebase(new Firebase("https://scorching-fire-1021.firebaseio.com/ToDoApp/data/todo")).$asArray();
 
+        dataLoaded = false;
+
         //Implement Interface methods       
         get = function () {
+            this.dataLoaded = true;
             return this.todoResource;
         }
 
@@ -37,6 +43,10 @@ module myToDoApp {
         delete = function (toDo: any) {
             this.todoResource.$remove(toDo);
         };
+
+        getToDo = function (id) {
+            return this.$firebase(new Firebase("https://scorching-fire-1021.firebaseio.com/ToDoApp/data/todo/").child(id)).$asObject();
+        }
     }
 }
 

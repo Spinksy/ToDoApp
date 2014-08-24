@@ -8,8 +8,10 @@ var myToDoApp;
             this.$firebase = $firebase;
             //Private properties
             this.todoResource = this.$firebase(new Firebase("https://scorching-fire-1021.firebaseio.com/ToDoApp/data/todo")).$asArray();
+            this.dataLoaded = false;
             //Implement Interface methods
             this.get = function () {
+                this.dataLoaded = true;
                 return this.todoResource;
             };
             this.post = function (toDo) {
@@ -20,6 +22,9 @@ var myToDoApp;
             };
             this.delete = function (toDo) {
                 this.todoResource.$remove(toDo);
+            };
+            this.getToDo = function (id) {
+                return this.$firebase(new Firebase("https://scorching-fire-1021.firebaseio.com/ToDoApp/data/todo/").child(id)).$asObject();
             };
         }
         toDoService.$inject = ['$firebase'];

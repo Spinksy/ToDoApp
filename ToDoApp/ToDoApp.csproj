@@ -59,6 +59,11 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\views\about.html" />
+    <Content Include="app\views\contact.html" />
+    <Content Include="app\views\editToDo.html" />
+    <Content Include="app\views\partials\editToDo.html" />
+    <Content Include="app\views\partials\viewToDo.html" />
     <Content Include="Scripts\version.json" />
     <Content Include="Scripts\errors.json" />
     <Content Include="Scripts\angular-touch.min.js.map" />
@@ -404,8 +409,10 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="app\app.ts" />
+    <TypeScriptCompile Include="app\controllers\EditController.ts" />
     <TypeScriptCompile Include="app\controllers\NavBarController.ts" />
-    <TypeScriptCompile Include="app\controllers\ToDoListCtrl.ts" />
+    <TypeScriptCompile Include="app\controllers\ListController.ts" />
+    <TypeScriptCompile Include="app\directives\goToLocation.ts" />
     <TypeScriptCompile Include="app\services\toDoService.ts" />
     <TypeScriptCompile Include="Resources\toDo.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-animate.d.ts" />
