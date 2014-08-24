@@ -25,15 +25,45 @@ module.exports = function(grunt) {
 		options: {
 		  livereload: true,
 		},
-	}
+	},
+	// connect: {
+    // server: {
+      // options: {
+        // port: 9001,
+        // base: 'ToDoApp'
+      // }
+    // }
+  // },
+  // connect: {
+      // options: {
+        // port: 9000,
+        // //hostname: 'localhost',
+        // //livereload: 35729,
+		// base: 'ToDoApp'
+      // },
+  // }
+  
+  connect: {
+    server: {
+      options: {
+        port: 9001,
+        base: 'ToDoApp'
+      }
+    }
+  }
   });
 
   // Load the plugin that provides the "uglify" task.
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-contrib-connect');
 
   // Default task(s).
-  grunt.registerTask('default', ['watch']);
-
+  grunt.registerTask('default', 'Running the server and watch tasks', function(){
+	grunt.task.run([
+		'connect:server',
+		'watch'
+	]);
+  });
 };

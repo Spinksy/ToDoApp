@@ -1,0 +1,8 @@
+﻿<div class="toDo" ng-mouseenter="showActions = true" ng-mouseleave="showActions = false">
+    <h4>{{toDo.name}}</h4>
+    <p>{{toDo.description}}</p>
+    <div class="btn-group btn-group-xs" ng-show="showActions" style="position: absolute; top: 10px; right: 20px;">
+        <button type="button" class="btn btn-default" ng-click="setViewState(true)"><span class="glyphicon glyphicon-edit"></span></button>
+        <button type="button" class="btn btn-default" ng-click="deleteToDo(toDo)"><span class="glyphicon glyphicon-remove"></span></button>
+    </div>
+</div>

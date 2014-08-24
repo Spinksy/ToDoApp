@@ -6,7 +6,20 @@
                 .when('/',
                 {
                     templateUrl: 'app/views/todolist.html',
-                    controller: 'ToDoListCtrl'
+                    controller: 'ListController'
+                })
+                .when('/ToDo/:toDoId',
+                {
+                    templateUrl: 'app/views/editToDo.html',
+                    controller: 'EditController'
+                })
+                .when('/about',
+                {
+                    templateUrl: 'app/views/about.html',
+                })
+                .when('/contact',
+                {
+                    templateUrl: 'app/views/contact.html',
                 });
         }
     }
