@@ -9,13 +9,15 @@ module myToDoApp {
         toDo: Resources.IToDo;
         addToDo(): void;
         deleteToDo(toDo: Resources.IToDo): void;
-        editToDo(toDo: Resources.IToDo): void;
-        //showActions: boolean;
+        updateToDo(toDo: Resources.IToDo): void;
+        currentView: {};
     }
 
     export class ToDoListCtrl {
 
         public static $inject = ['$scope', 'toDoService', 'toaster'];
+        private views = [{ state: 'view', url: 'app/views/viewTodo.html' },
+                         { state: 'edit', url: 'app/views/editTodo.html' }];
 
         constructor(
             $scope: myToDoApp.IToDoListCtrl, toDoService: myToDoApp.toDoService, toaster: any)
@@ -43,11 +45,12 @@ module myToDoApp {
             };
 
             //Update ToDo
-            $scope.editToDo = function (toDo) {
+            $scope.updateToDo = function (toDo) {
                 toDoService.update(toDo);
                 toaster.pop('success', $scope.toDo.name, "Successfully updated");
+            }
 
-           }
+            $scope.currentView = this.views[0];
         }
     }
 } 

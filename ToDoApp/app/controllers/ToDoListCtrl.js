@@ -5,6 +5,9 @@ var myToDoApp;
 (function (myToDoApp) {
     var ToDoListCtrl = (function () {
         function ToDoListCtrl($scope, toDoService, toaster) {
+            this.views = [
+                { state: 'view', url: 'app/views/viewTodo.html' },
+                { state: 'edit', url: 'app/views/editTodo.html' }];
             //$scope.showActions = false;
             //Get ToDos
             $scope.toDos = toDoService.get();
@@ -27,10 +30,12 @@ var myToDoApp;
             };
 
             //Update ToDo
-            $scope.editToDo = function (toDo) {
+            $scope.updateToDo = function (toDo) {
                 toDoService.update(toDo);
                 toaster.pop('success', $scope.toDo.name, "Successfully updated");
             };
+
+            $scope.currentView = this.views[0];
         }
         ToDoListCtrl.$inject = ['$scope', 'toDoService', 'toaster'];
         return ToDoListCtrl;
