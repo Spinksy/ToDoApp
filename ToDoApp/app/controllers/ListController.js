@@ -21,7 +21,7 @@ var myToDoApp;
             $scope.addToDo = function () {
                 toDoService.post($scope.toDo);
                 toaster.pop('success', $scope.toDo.name, "Saved successfully");
-                $scope.toDo = { name: undefined, description: undefined, $id: undefined };
+                $scope.toDo = new Resources.toDo();
             };
 
             //Delete Todo
