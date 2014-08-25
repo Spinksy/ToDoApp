@@ -412,7 +412,6 @@
     <TypeScriptCompile Include="app\controllers\EditController.ts" />
     <TypeScriptCompile Include="app\controllers\NavBarController.ts" />
     <TypeScriptCompile Include="app\controllers\ListController.ts" />
-    <TypeScriptCompile Include="app\directives\goToLocation.ts" />
     <TypeScriptCompile Include="app\services\toDoService.ts" />
     <TypeScriptCompile Include="Resources\toDo.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-animate.d.ts" />
