@@ -14,13 +14,16 @@
     <link href="Content/bootstrap-theme.min.css" rel="stylesheet" />
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
 
+    <!-- Font Awesome -->
+    <link href="Scripts/font-awesome-4.2.0/css/font-awesome.min.css" rel="stylesheet" />
+
     <!-- myStyles css -->
     <link href="styles/myStyles.css" rel="stylesheet" />
     <link href="Content/toaster.css" rel="stylesheet" />
 </head>
-<body>
-    <div class="container">
-        <div class="navbar navbar-default" role="navigation">
+<body style="background-color: lightgray">
+    <div class="container" style="background-color: white">
+        <div class="navbar navbar-default" role="navigation" style="margin-top: 10px">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -41,11 +44,12 @@
                 </div><!--/.nav-collapse -->
             </div><!--/.container-fluid -->
         </div>
-
+        
+        <!-- Dynamic view placeholders -->
         <div ng-view=""></div>
 
         <div class="footer">
-            <p><span class="glyphicon glyphicon-copyright-mark"></span> glennspinks</p>
+            <p style="float: right"><span class="glyphicon glyphicon-copyright-mark"></span> glennspinks</p>
         </div>
     </div>
     
