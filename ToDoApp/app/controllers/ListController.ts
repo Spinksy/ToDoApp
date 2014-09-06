@@ -11,8 +11,8 @@ module myToDoApp {
         deleteToDo(toDo: Resources.IToDo): void;
         editToDo(toDo: Resources.IToDo): void;
         goToEdit(toDo: Resources.IToDo): void;
-        editState: boolean;
-        setViewState(state: boolean): void;
+        setEditState(toDo: Resources.IToDo): void;
+        
     }
 
     export class ListController {
@@ -22,10 +22,6 @@ module myToDoApp {
         constructor(
             $scope: myToDoApp.IToDoListCtrl, toDoService: myToDoApp.toDoService, toaster: any, $location: ng.ILocationProvider)
         {
-            //ToDo view controls
-            $scope.editState = false;
-            $scope.setViewState = function (state) { $scope.editState = state; };
-
             //Get ToDos
             $scope.toDos = toDoService.get();
 
@@ -48,13 +44,18 @@ module myToDoApp {
 
             //Update ToDo
             $scope.editToDo = function (toDo) {
+                toDo.editing = false;
                 toDoService.update(toDo);
                 toaster.pop('success', toDo.name, "Successfully updated");
-                $scope.editState = false;
             }
 
             $scope.goToEdit = function (toDo) {
                 location.href = '#/ToDo/' + toDo.$id;
+            }
+
+            $scope.setEditState = function (toDo) {
+                toDo.editing = true;
+                toDoService.update(toDo);
             }
         }
     }
