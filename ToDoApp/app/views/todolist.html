@@ -1,18 +1,6 @@
 ﻿
-<div class="jumbotron">
-    <form class="form-horizontal" role="form">
-        <div class="form-group">
-            <!--<label for="toToTitle">Name</label>-->
-            <input ng-model="toDo.name" type="text" class="form-control" id="toToTitle" placeholder="Enter New ToDo Name">
-        </div>
-        <div class="form-group">
-            <!--<label for="toToDescription">Description</label>-->
-            <input ng-model="toDo.description" type="text" class="form-control" id="toToDescription" placeholder="Enter New ToDo Description">
-        </div>
-        <button class="btn btn-success" ng-click="addToDo()">Add To Do</button>
-    </form>
-</div>
-<br />
+<div ng-include="'app/views/partials/addToDo.html'"></div>
+<hr />
 <div class="row marketing" ng-show="toDos.length">
     <div class="col-lg-6" ng-repeat="toDo in toDos">
         <data-ng-include src="'app/views/partials/viewToDo.html'" ng-hide="editState"></data-ng-include>
