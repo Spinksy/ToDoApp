@@ -5,12 +5,6 @@ var myToDoApp;
 (function (myToDoApp) {
     var ListController = (function () {
         function ListController($scope, toDoService, toaster, $location) {
-            //ToDo view controls
-            $scope.editState = false;
-            $scope.setViewState = function (state) {
-                $scope.editState = state;
-            };
-
             //Get ToDos
             $scope.toDos = toDoService.get();
 
@@ -33,13 +27,18 @@ var myToDoApp;
 
             //Update ToDo
             $scope.editToDo = function (toDo) {
+                toDo.editing = false;
                 toDoService.update(toDo);
                 toaster.pop('success', toDo.name, "Successfully updated");
-                $scope.editState = false;
             };
 
             $scope.goToEdit = function (toDo) {
                 location.href = '#/ToDo/' + toDo.$id;
+            };
+
+            $scope.setEditState = function (toDo) {
+                toDo.editing = true;
+                toDoService.update(toDo);
             };
         }
         ListController.$inject = ['$scope', 'toDoService', 'toaster', '$location'];

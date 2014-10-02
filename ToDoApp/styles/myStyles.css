@@ -1,4 +1,19 @@
-﻿/* Space out content a bit */
+﻿
+/*/* Override bootstrap default font*/
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+p, div {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+/* Style myToDo Title*/
+#myToDoTitleBar {
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+/* Space out content a bit */
 body {
   padding-top: 20px;
   padding-bottom: 20px;
@@ -39,6 +54,12 @@ div.toDo:hover {
   padding-top: 19px;
   color: #777;
   border-top: 1px solid #e5e5e5;
+}
+
+/* Center Add to do form elements*/
+#addToDoForm input, button {
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Customize container */
@@ -88,4 +109,4 @@ div.toDo:hover {
   .jumbotron {
     border-bottom: 0;
   }
-}
+}*/

@@ -6,6 +6,7 @@ module Resources {
         name: string;
         description: string;
         $id: string;
+        editing: boolean;
     }
 
     export class toDo implements IToDo{
@@ -13,6 +14,11 @@ module Resources {
         public name;
         public description;
         public $id;
+        public editing;
+
+        constructor() {
+            this.editing = false;
+        }
     }
 }
 

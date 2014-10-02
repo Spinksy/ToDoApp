@@ -1,11 +1,10 @@
-﻿
-<div ng-include="'app/views/partials/addToDo.html'"></div>
+﻿<div ng-include="'app/views/partials/addToDo.html'"></div>
 <hr />
 <div class="row marketing" ng-show="toDos.length">
     <div class="col-lg-6" ng-repeat="toDo in toDos">
-        <data-ng-include src="'app/views/partials/viewToDo.html'" ng-hide="editState"></data-ng-include>
-        <data-ng-include src="'app/views/partials/editToDo.html'" ng-show="editState"></data-ng-include>
+        <data-ng-include src="'app/views/partials/viewToDo.html'" ng-hide="toDo.editing"></data-ng-include>
+        <data-ng-include src="'app/views/partials/editToDo.html'" ng-show="toDo.editing"></data-ng-include>
     </div>
 </div>
-<div class="jumbotron" ng-hide="toDos.length" ng-cloak="toDoService.dataLoaded"><h4>No ToDos created</h4></div>
+<div ng-hide="toDos.length" ng-cloak="toDoService.dataLoaded"><h4>No ToDos created</h4></div>
 <toaster-container toaster-options="{'time-out': 3000}"></toaster-container>

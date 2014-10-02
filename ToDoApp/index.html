@@ -9,15 +9,16 @@
     <script src="Scripts/angular-route.min.js"></script>
     <script src="Scripts/angular-animate.js"></script>
 
-	
+
     <!-- Bootstrap -->
-    <link href="Content/bootstrap-theme.min.css" rel="stylesheet" />
-    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/bootstrap-theme.css" rel="stylesheet" />
+    <link href="Content/bootstrap.css" rel="stylesheet" />
 
     <!-- Font Awesome -->
     <link href="Scripts/font-awesome-4.2.0/css/font-awesome.min.css" rel="stylesheet" />
 
     <!-- myStyles css -->
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
     <link href="styles/myStyles.css" rel="stylesheet" />
     <link href="Content/toaster.css" rel="stylesheet" />
 </head>
@@ -33,7 +34,11 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a ng-href="#">
-                        <h3 class="text-muted" style="margin-left: 10px">myToDos</h3>
+                        
+                        <h3 class="text-muted" id="myToDoTitleBar">
+                            <img src="Resources/images/todo.png" alt="ToDo Image" style="width: 25px; height: 25px;" />
+                            &nbsp;myToDos
+                        </h3>
                     </a>
                 </div>
                 <div class="navbar-collapse collapse" ng-controller="NavBarController">
@@ -44,7 +49,7 @@
                 </div><!--/.nav-collapse -->
             </div><!--/.container-fluid -->
         </div>
-        
+
         <!-- Dynamic view placeholders -->
         <div ng-view=""></div>
 
@@ -52,7 +57,7 @@
             <p style="float: right"><span class="glyphicon glyphicon-copyright-mark"></span> glennspinks</p>
         </div>
     </div>
-    
+
     <script src="Scripts/toaster.js"></script>
 
     <!-- App References -->
@@ -62,7 +67,7 @@
     <script src="app/controllers/NavBarController.js"></script>
     <script src="app/services/toDoService.js"></script>
     <script src="Resources/toDo.js"></script>
-    
+
 
     <!-- JQuery Bootstrap References -->
     <script src="Scripts/jquery-1.9.0.js"></script>

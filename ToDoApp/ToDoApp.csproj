@@ -65,6 +65,7 @@
     <Content Include="app\views\partials\addToDo.html" />
     <Content Include="app\views\partials\editToDo.html" />
     <Content Include="app\views\partials\viewToDo.html" />
+    <Content Include="Resources\images\todo.png" />
     <Content Include="Scripts\font-awesome-4.2.0\css\font-awesome.css" />
     <Content Include="Scripts\font-awesome-4.2.0\css\font-awesome.min.css" />
     <Content Include="Scripts\font-awesome-4.2.0\fonts\fontawesome-webfont.svg" />

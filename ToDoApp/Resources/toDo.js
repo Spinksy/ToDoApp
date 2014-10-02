@@ -4,6 +4,7 @@ var Resources;
 (function (Resources) {
     var toDo = (function () {
         function toDo() {
+            this.editing = false;
         }
         return toDo;
     })();
