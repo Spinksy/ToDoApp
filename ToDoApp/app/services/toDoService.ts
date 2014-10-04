@@ -10,7 +10,6 @@ module myToDoApp {
         update(toDo: any): void;
         delete(toDo: any): void;
         getToDo(id: string): Resources.IToDo;
-        dataLoaded: boolean;
     }
 
     export class toDoService implements IToDoService {
@@ -22,13 +21,11 @@ module myToDoApp {
         }
 
         //Private properties
-        private todoResource = this.$firebase(new Firebase("https://scorching-fire-1021.firebaseio.com/ToDoApp/data/todo")).$asArray();
 
-        dataLoaded = false;
+        private todoResource = this.$firebase(new Firebase("https://scorching-fire-1021.firebaseio.com/ToDoApp/data/todo")).$asArray();
 
         //Implement Interface methods       
         get = function () {
-            this.dataLoaded = true;
             return this.todoResource;
         }
 

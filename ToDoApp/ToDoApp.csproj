@@ -65,7 +65,8 @@
     <Content Include="app\views\partials\addToDo.html" />
     <Content Include="app\views\partials\editToDo.html" />
     <Content Include="app\views\partials\viewToDo.html" />
-    <Content Include="Resources\images\todo.png" />
+    <Content Include="Content\images\loading.gif" />
+    <Content Include="Content\images\todo.png" />
     <Content Include="Scripts\font-awesome-4.2.0\css\font-awesome.css" />
     <Content Include="Scripts\font-awesome-4.2.0\css\font-awesome.min.css" />
     <Content Include="Scripts\font-awesome-4.2.0\fonts\fontawesome-webfont.svg" />
@@ -444,6 +445,7 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="app\app.ts" />
+    <TypeScriptCompile Include="app\controllers\baseController.ts" />
     <TypeScriptCompile Include="app\controllers\EditController.ts" />
     <TypeScriptCompile Include="app\controllers\NavBarController.ts" />
     <TypeScriptCompile Include="app\controllers\ListController.ts" />
@@ -462,7 +464,7 @@
     <TypeScriptCompile Include="Scripts\typings\jquery\jquery.d.ts" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Content\images\" />
+    <Folder Include="Resources\images\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

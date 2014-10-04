@@ -5,8 +5,7 @@ var myToDoApp;
 (function (myToDoApp) {
     var ListController = (function () {
         function ListController($scope, toDoService, toaster, $location) {
-            //Get ToDos
-            $scope.toDos = toDoService.get();
+            $scope.$emit('LOADING');
 
             //Get Todo
             $scope.toDo = new Resources.toDo();
@@ -40,6 +39,16 @@ var myToDoApp;
                 toDo.editing = true;
                 toDoService.update(toDo);
             };
+
+            //Get ToDos
+            $scope.toDos = getToDos();
+
+            function getToDos() {
+                var toDoList = toDoService.get();
+                $scope.$emit('LOADED');
+                return toDoList;
+            }
+            ;
         }
         ListController.$inject = ['$scope', 'toDoService', 'toaster', '$location'];
         return ListController;
