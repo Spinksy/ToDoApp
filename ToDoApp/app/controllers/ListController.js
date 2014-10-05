@@ -5,8 +5,7 @@ var myToDoApp;
 (function (myToDoApp) {
     var ListController = (function () {
         function ListController($scope, toDoService, toaster, $location) {
-            $scope.$emit('LOADING');
-
+            //$scope.$emit('LOADING');
             //Get Todo
             $scope.toDo = new Resources.toDo();
 

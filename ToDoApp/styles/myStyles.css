@@ -41,8 +41,10 @@ body {
 
 /* ToDo Styling */
 div.toDo {
+    border: 1px solid rgb(237, 232, 232);
     border-radius: 15px 15px 15px 15px;  
-    padding: 10px;
+    padding: 8px;
+    margin: 2px 2px;
 }
 
 div.toDo:hover {

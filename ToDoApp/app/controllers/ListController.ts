@@ -22,7 +22,7 @@ module myToDoApp {
             $scope: myToDoApp.IToDoListCtrl, toDoService: myToDoApp.toDoService, toaster: any, $location: ng.ILocationProvider)
         {
 
-            $scope.$emit('LOADING');
+            //$scope.$emit('LOADING');
 
             //Get Todo
             $scope.toDo = new Resources.toDo();

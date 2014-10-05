@@ -2,7 +2,7 @@
 (function (myToDoApp) {
     var baseController = (function () {
         function baseController($scope) {
-            $scope.loading = false;
+            $scope.loading = true;
 
             $scope.$on('LOADING', function () {
                 $scope.loading = true;

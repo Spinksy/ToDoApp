@@ -21,7 +21,6 @@ module myToDoApp {
         }
 
         //Private properties
-
         private todoResource = this.$firebase(new Firebase("https://scorching-fire-1021.firebaseio.com/ToDoApp/data/todo")).$asArray();
 
         //Implement Interface methods       

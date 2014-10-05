@@ -11,11 +11,9 @@
 
         constructor($scope: myToDoApp.IBaseController) {
 
-            $scope.loading = false;
+            $scope.loading = true;
 
-            $scope.$on('LOADING', function () {
-                $scope.loading = true;
-            });
+            $scope.$on('LOADING', function () { $scope.loading = true; });
             $scope.$on('LOADED', function () { $scope.loading = false; });
         }
     }
