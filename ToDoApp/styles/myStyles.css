@@ -13,6 +13,13 @@ p, div {
     margin-top: 10px;
 }
 
+/* Style Loading Spinner*/
+#loadingSpinner {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 /* Space out content a bit */
 body {
   padding-top: 20px;

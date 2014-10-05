@@ -1,7 +1,7 @@
 ﻿<div ng-include="'app/views/partials/addToDo.html'"></div>
 <hr />
 <div ng-hide="toDos.length">
-    <img src="Content/images/loading.gif" />
+    <img id="loadingSpinner" src="Content/images/loading.gif" />
 </div>
 <div class="row marketing" ng-show="toDos.length">
     <div class="col-lg-6" ng-repeat="toDo in toDos">
