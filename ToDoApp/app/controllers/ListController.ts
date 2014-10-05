@@ -12,7 +12,6 @@ module myToDoApp {
         editToDo(toDo: Resources.IToDo): void;
         goToEdit(toDo: Resources.IToDo): void;
         setEditState(toDo: Resources.IToDo): void;
-        
     }
 
     export class ListController {
@@ -22,8 +21,8 @@ module myToDoApp {
         constructor(
             $scope: myToDoApp.IToDoListCtrl, toDoService: myToDoApp.toDoService, toaster: any, $location: ng.ILocationProvider)
         {
-            //Get ToDos
-            $scope.toDos = toDoService.get();
+
+            //$scope.$emit('LOADING');
 
             //Get Todo
             $scope.toDo = new Resources.toDo();
@@ -57,6 +56,15 @@ module myToDoApp {
                 toDo.editing = true;
                 toDoService.update(toDo);
             }
+
+            //Get ToDos
+            $scope.toDos = getToDos();
+
+            function getToDos() {
+                var toDoList = toDoService.get();
+                $scope.$emit('LOADED'); 
+                return toDoList;
+            };
         }
     }
 } 

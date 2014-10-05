@@ -8,10 +8,8 @@ var myToDoApp;
             this.$firebase = $firebase;
             //Private properties
             this.todoResource = this.$firebase(new Firebase("https://scorching-fire-1021.firebaseio.com/ToDoApp/data/todo")).$asArray();
-            this.dataLoaded = false;
             //Implement Interface methods
             this.get = function () {
-                this.dataLoaded = true;
                 return this.todoResource;
             };
             this.post = function (toDo) {
