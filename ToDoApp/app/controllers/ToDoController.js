@@ -5,7 +5,6 @@ var myToDoApp;
 (function (myToDoApp) {
     var ToDoController = (function () {
         function ToDoController($scope, $modalInstance, toDoService, toaster, toDoId) {
-            //$scope.toDo = new Resources.toDo();
             $scope.toDo = toDoService.getToDo(toDoId);
 
             $scope.save = function () {
@@ -14,10 +13,11 @@ var myToDoApp;
                 $modalInstance.dismiss('cancel');
             };
 
-            $scope.delete = function () {
-                var deleteToDo = $scope.toDo;
-                toDoService.delete($scope.toDo);
-                toaster.pop('danger', deleteToDo.name, "Deleted");
+            $scope.remove = function () {
+                var deleteName = $scope.toDo.name;
+                toDoService.remove($scope.toDo);
+                toaster.pop('error', deleteName, "Removed successfully");
+                $modalInstance.dismiss('cancel');
             };
         }
         ToDoController.$inject = ['$scope', '$modalInstance', 'toDoService', 'toaster', 'toDoId'];
@@ -28,4 +28,4 @@ var myToDoApp;
 ;
 
 angular.module('myToDoApp').controller('ToDoController', myToDoApp.ToDoController);
-//# sourceMappingURL=EditController.js.map
+//# sourceMappingURL=ToDoController.js.map

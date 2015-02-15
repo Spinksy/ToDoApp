@@ -449,7 +449,7 @@
   <ItemGroup>
     <TypeScriptCompile Include="app\app.ts" />
     <TypeScriptCompile Include="app\controllers\baseController.ts" />
-    <TypeScriptCompile Include="app\controllers\EditController.ts" />
+    <TypeScriptCompile Include="app\controllers\ToDoController.ts" />
     <TypeScriptCompile Include="app\controllers\NavBarController.ts" />
     <TypeScriptCompile Include="app\controllers\ListController.ts" />
     <TypeScriptCompile Include="app\services\toDoService.ts" />

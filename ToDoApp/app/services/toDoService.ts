@@ -8,7 +8,7 @@ module myToDoApp {
         get(): any;
         create(toDo: Resources.IToDo): void;
         update(toDo: Resources.IToDo): void;
-        delete(toDo: Resources.IToDo): void;
+        remove(toDo: Resources.IToDo): void;
         getToDo(id: string): Resources.IToDo;
     }
 
@@ -44,7 +44,7 @@ module myToDoApp {
         };
 
         //Delete a record
-        delete = function (toDo: any) {
+        remove = function (toDo: any) {
             this.todoResource.$remove(toDo);
         };
 

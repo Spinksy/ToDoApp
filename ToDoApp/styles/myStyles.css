@@ -71,7 +71,7 @@ div.toDo:hover {
 }
 
 /* Center Add to do form elements*/
-#addToDoForm input, button {
+#addToDoForm input, textarea, button {
     margin-left: auto;
     margin-right: auto;
 }

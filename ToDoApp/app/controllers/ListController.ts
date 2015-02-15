@@ -34,7 +34,7 @@ module myToDoApp {
             $scope.viewToDo = function (userId) {
                 var modalInstance = $modal.open({
                     templateUrl: 'app/views/viewToDo.html',
-                    controller: 'EditController',
+                    controller: 'ToDoController',
                     resolve: {
                         toDoId: function () {
                             return userId;
@@ -53,7 +53,7 @@ module myToDoApp {
             //Delete Todo
             $scope.deleteToDo = function (toDo) {
                 var deleteName = toDo.name;
-                toDoService.delete(toDo);
+                toDoService.remove(toDo);
                 toaster.pop('error', deleteName, "Removed successfully");
             };
 

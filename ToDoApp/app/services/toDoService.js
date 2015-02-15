@@ -25,7 +25,7 @@ var myToDoApp;
                 this.todoResource.$save(toDo);
             };
             //Delete a record
-            this.delete = function (toDo) {
+            this.remove = function (toDo) {
                 this.todoResource.$remove(toDo);
             };
         }
