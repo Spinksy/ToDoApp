@@ -1,6 +1,27 @@
-﻿<h4>{{toDo.name}}</h4>
-<p>{{toDo.description}}</p>
-<div class="btn-group btn-group-xs" ng-show="showActions" style="position: absolute; top: 10px; right: 20px;">
-    <button type="button" class="btn btn-default" ng-click="editToDo(toDo)"><span class="glyphicon glyphicon-edit"></span></button>
-    <button type="button" class="btn btn-default" ng-click="deleteToDo(toDo)"><span class="glyphicon glyphicon-remove"></span></button>
+﻿<div class="modal-header">
+    <h1>ToDo</h1>
 </div>
+<div class="modal-body" style="padding: 20px;">
+    <form name="toDoForm" class="form-horizontal">
+        <div class="form-group">
+            <label for="name">Name: </label>
+            <input type="text" ng-model="toDo.name" class="form-control" id="name" placeholder="Name" />
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea type="text" ng-model="toDo.description" class="form-control" id="description" placeholder="Description"></textarea>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button ng-click="save()"
+            ng-disabled="toDoForm.$pristine"
+            class="btn btn-primary">
+        <i class="icon-white icon-plus"></i> Save
+    </button>
+    <button ng-click="remove()" class="btn btn-danger">Delete</button>
+</div>
+
+
+
+

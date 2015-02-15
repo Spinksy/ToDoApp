@@ -6,9 +6,9 @@ module myToDoApp {
 
     export interface IToDoService {
         get(): any;
-        post(toDo: any): void;
-        update(toDo: any): void;
-        delete(toDo: any): void;
+        create(toDo: Resources.IToDo): void;
+        update(toDo: Resources.IToDo): void;
+        remove(toDo: Resources.IToDo): void;
         getToDo(id: string): Resources.IToDo;
     }
 
@@ -23,27 +23,34 @@ module myToDoApp {
         //Private properties
         private todoResource = this.$firebase(new Firebase("https://scorching-fire-1021.firebaseio.com/ToDoApp/data/todo")).$asArray();
 
-        //Implement Interface methods       
+        //Get list of record    
         get = function () {
             return this.todoResource;
         }
 
-        post = function (toDo: any) {
+        //Get a single record
+        getToDo = function (id) {
+            return this.todoResource.$getRecord(id);
+        }
+
+        //Add a new record
+        create = function (toDo: Resources.IToDo) {
            this.todoResource.$add(toDo);
         };
 
+        //Update an existing record
         update = function (toDo: any) {
             this.todoResource.$save(toDo);
         };
 
-        delete = function (toDo: any) {
+        //Delete a record
+        remove = function (toDo: any) {
             this.todoResource.$remove(toDo);
         };
 
-        getToDo = function (id) {
-            return this.$firebase(new Firebase("https://scorching-fire-1021.firebaseio.com/ToDoApp/data/todo/").child(id)).$asObject();
-        }
+
     }
 }
 
-angular.module('myToDoApp').service('toDoService', myToDoApp.toDoService);
+angular.module('myToDoApp')
+    .service('toDoService', myToDoApp.toDoService);

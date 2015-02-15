@@ -1,13 +1,11 @@
 ﻿var myToDoApp;
 (function (myToDoApp) {
     var config = (function () {
+        //The routing for the ng-view element
         function config($routeProvider) {
             $routeProvider.when('/', {
-                templateUrl: 'app/views/todolist.html',
+                templateUrl: 'app/views/toDoList.html',
                 controller: 'ListController'
-            }).when('/ToDo/:toDoId', {
-                templateUrl: 'app/views/editToDo.html',
-                controller: 'EditController'
             }).when('/about', {
                 templateUrl: 'app/views/about.html'
             }).when('/contact', {
@@ -21,5 +19,5 @@
 
 myToDoApp.config.$inject = ['$routeProvider'];
 
-angular.module('myToDoApp', ['ngRoute', 'firebase', 'toaster', 'Resources']).config(myToDoApp.config);
+angular.module('myToDoApp', ['ngRoute', 'firebase', 'toaster', 'Resources', 'ui.bootstrap']).config(myToDoApp.config);
 //# sourceMappingURL=app.js.map

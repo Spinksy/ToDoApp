@@ -4,14 +4,26 @@
 var myToDoApp;
 (function (myToDoApp) {
     var ListController = (function () {
-        function ListController($scope, toDoService, toaster, $location) {
-            //$scope.$emit('LOADING');
+        function ListController($scope, $modal, toDoService, toaster, $location) {
             //Get Todo
             $scope.toDo = new Resources.toDo();
 
+            // Modal: called by edit(userId) and Add new user
+            $scope.viewToDo = function (userId) {
+                var modalInstance = $modal.open({
+                    templateUrl: 'app/views/viewToDo.html',
+                    controller: 'ToDoController',
+                    resolve: {
+                        toDoId: function () {
+                            return userId;
+                        }
+                    }
+                });
+            };
+
             //Post Todo
             $scope.addToDo = function () {
-                toDoService.post($scope.toDo);
+                toDoService.create($scope.toDo);
                 toaster.pop('success', $scope.toDo.name, "Saved successfully");
                 $scope.toDo = new Resources.toDo();
             };
@@ -19,7 +31,7 @@ var myToDoApp;
             //Delete Todo
             $scope.deleteToDo = function (toDo) {
                 var deleteName = toDo.name;
-                toDoService.delete(toDo);
+                toDoService.remove(toDo);
                 toaster.pop('error', deleteName, "Removed successfully");
             };
 
@@ -49,7 +61,7 @@ var myToDoApp;
             }
             ;
         }
-        ListController.$inject = ['$scope', 'toDoService', 'toaster', '$location'];
+        ListController.$inject = ['$scope', '$modal', 'toDoService', 'toaster', '$location'];
         return ListController;
     })();
     myToDoApp.ListController = ListController;
