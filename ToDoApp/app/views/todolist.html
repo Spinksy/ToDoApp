@@ -1,13 +1,25 @@
-﻿<div ng-include="'app/views/partials/addToDo.html'"></div>
-<hr />
+﻿<!-- New ToDo Form -->
+<form class="form" role="form" id="addToDoForm">
+    <div class="form-group">
+        <input ng-model="toDo.name" type="text" class="form-control" id="toToTitle" placeholder="Enter Title" style="width: 70%">
+    </div>
+    <div class="form-group">
+        <input ng-model="toDo.description" type="text" class="form-control" id="toToDescription" placeholder="Enter Description" style="width: 70%">
+    </div>
+    <div class="text-center">
+        <button class="btn btn-success" ng-click="addToDo()">Add To Do</button>
+    </div>
+</form>
+<br /><hr />
 <div ng-hide="toDos.length">
     <img id="loadingSpinner" src="Content/images/loading.gif" />
 </div>
 <div class="row marketing" ng-show="toDos.length">
     <div class="col-lg-6" ng-repeat="toDo in toDos">
-        <data-ng-include src="'app/views/partials/viewToDo.html'" ng-hide="toDo.editing"></data-ng-include>
-        <data-ng-include src="'app/views/partials/editToDo.html'" ng-show="toDo.editing"></data-ng-include>
+        <div id="toDoItem" class="well well-sm" ng-click="viewToDo(toDo.$id)">
+            <h4>{{toDo.name}}</h4>
+            <p>{{toDo.description}}</p>
+        </div>
     </div>
 </div>
-<!--<div ng-hide="toDos.length"><h4>No ToDos created</h4></div>-->
 <toaster-container toaster-options="{'time-out': 3000}"></toaster-container>

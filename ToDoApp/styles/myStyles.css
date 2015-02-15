@@ -18,6 +18,11 @@ p, div {
     display: block;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 20px;
+}
+
+#toDoItem:hover{
+    background: rgba(105, 105, 105, 0.76);
 }
 
 /* Space out content a bit */

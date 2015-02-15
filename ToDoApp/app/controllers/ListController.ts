@@ -12,24 +12,40 @@ module myToDoApp {
         editToDo(toDo: Resources.IToDo): void;
         goToEdit(toDo: Resources.IToDo): void;
         setEditState(toDo: Resources.IToDo): void;
+        viewToDo(userId: string): void;
     }
 
     export class ListController {
 
-        public static $inject = ['$scope', 'toDoService', 'toaster', '$location'];
+        public static $inject = ['$scope', '$modal', 'toDoService', 'toaster', '$location'];
 
         constructor(
-            $scope: myToDoApp.IToDoListCtrl, toDoService: myToDoApp.toDoService, toaster: any, $location: ng.ILocationProvider)
+            $scope: myToDoApp.IToDoListCtrl,
+            $modal: any,
+            toDoService: myToDoApp.toDoService,
+            toaster: any,
+            $location: ng.ILocationProvider)
         {
-
-            //$scope.$emit('LOADING');
 
             //Get Todo
             $scope.toDo = new Resources.toDo();
 
+            // Modal: called by edit(userId) and Add new user
+            $scope.viewToDo = function (userId) {
+                var modalInstance = $modal.open({
+                    templateUrl: 'app/views/viewToDo.html',
+                    controller: 'EditController',
+                    resolve: {
+                        toDoId: function () {
+                            return userId;
+                        }
+                    }
+                });
+            };
+
             //Post Todo
             $scope.addToDo = function () {
-                toDoService.post($scope.toDo);
+                toDoService.create($scope.toDo);
                 toaster.pop('success', $scope.toDo.name, "Saved successfully");
                 $scope.toDo = new Resources.toDo();
             };

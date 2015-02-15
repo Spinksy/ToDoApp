@@ -5,14 +5,12 @@
     <meta name="viewport" content="width=device-width">
 
     <!-- AngularJs References -->
-    <script src="Scripts/angular.min.js"></script>
+    <script src="Scripts/angular.js"></script>
     <script src="Scripts/angular-route.min.js"></script>
     <script src="Scripts/angular-animate.js"></script>
-
     <!-- Bootstrap -->
     <link href="Content/bootstrap-theme.css" rel="stylesheet" />
     <link href="Content/bootstrap.css" rel="stylesheet" />
-
     <!-- Font Awesome -->
     <link href="Scripts/font-awesome-4.2.0/css/font-awesome.min.css" rel="stylesheet" />
 
@@ -23,7 +21,8 @@
 </head>
 <body style="background-color: lightgray" ng-controller="baseController">
     <div class="container" style="background-color: white">
-        <div class="navbar navbar-default" role="navigation" style="margin-top: 10px">
+        <!-- Navigation Bar -->
+        <div class="navbar navbar-default" role="navigation" style="margin-top: 10px" ng-controller="NavBarController">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -33,7 +32,7 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a ng-href="#">
-                        
+
                         <h3 class="text-muted" id="myToDoTitleBar">
                             <img src="Content/images/todo.png" alt="ToDo Image" style="width: 25px; height: 25px;" />
                             &nbsp;myToDos
@@ -49,15 +48,16 @@
             </div><!--/.container-fluid -->
         </div>
 
-        <!-- Dynamic view placeholders -->
+
+
+        <!-- Dynamic View -->
         <div ng-view=""></div>
 
+        <!-- Footer -->
         <div class="footer">
             <p style="float: right"><span class="glyphicon glyphicon-copyright-mark"></span> glennspinks</p>
         </div>
     </div>
-
-    <script src="Scripts/toaster.js"></script>
 
     <!-- App References -->
     <script src="app/app.js"></script>
@@ -68,12 +68,19 @@
     <script src="app/services/toDoService.js"></script>
     <script src="Resources/toDo.js"></script>
 
+    <!-- Bootstrap UI Reference -->
+    <script src="Scripts/angular-bootstrap/ui-bootstrap.js"></script>
+    <script src="Scripts/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+
+    <!-- FireBase References -->
+    <script src="https://cdn.firebase.com/js/client/1.0.18/firebase.js"></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/0.8.0/angularfire.js"></script>
+
     <!-- JQuery Bootstrap References -->
     <script src="Scripts/jquery-1.9.0.js"></script>
     <script src="Scripts/bootstrap.js"></script>
 
-    <!-- FireBase References -->
-    <script src="https://cdn.firebase.com/js/client/1.0.18/firebase.js"></script>
-    <script src="https://cdn.firebase.com/libs/angularfire/0.8.0/angularfire.min.js"></script>
+    <!-- Toaster Framework -->
+    <script src="Scripts/toaster.js"></script>
 </body>
 </html>

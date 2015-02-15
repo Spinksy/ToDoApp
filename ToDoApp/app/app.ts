@@ -1,17 +1,14 @@
 ﻿module myToDoApp {
+
     export class config {
 
+        //The routing for the ng-view element
         constructor($routeProvider: ng.route.IRouteProvider) {
             $routeProvider
                 .when('/',
                 {
-                    templateUrl: 'app/views/todolist.html',
+                    templateUrl: 'app/views/toDoList.html',
                     controller: 'ListController'
-                })
-                .when('/ToDo/:toDoId',
-                {
-                    templateUrl: 'app/views/editToDo.html',
-                    controller: 'EditController'
                 })
                 .when('/about',
                 {
@@ -27,7 +24,6 @@
 
 myToDoApp.config.$inject = ['$routeProvider'];
 
-angular.module('myToDoApp',
-    ['ngRoute', 'firebase', 'toaster', 'Resources'])
+angular.module('myToDoApp', ['ngRoute', 'firebase', 'toaster', 'Resources', 'ui.bootstrap'])
     .config(myToDoApp.config);
 

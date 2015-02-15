@@ -1,10 +1,20 @@
-﻿var myToDoApp;
+﻿/// <reference path="../../scripts/typings/jquery/jquery.d.ts" />
+/// <reference path="../../scripts/typings/angularjs/angular.d.ts" />
+/// <reference path="../../scripts/typings/firebase/firebase.d.ts" />
+var myToDoApp;
 (function (myToDoApp) {
     var EditController = (function () {
-        function EditController($scope, $routeParams, toDoService) {
-            $scope.toDo = toDoService.getToDo($routeParams.toDoId);
+        function EditController($scope, $modalInstance, toDoService, toaster, toDoId) {
+            //$scope.toDo = new Resources.toDo();
+            $scope.toDo = toDoService.getToDo(toDoId);
+
+            $scope.save = function () {
+                toDoService.update($scope.toDo);
+                toaster.pop('success', $scope.toDo.name, "Successfully updated");
+                $modalInstance.dismiss('cancel');
+            };
         }
-        EditController.$inject = ['$scope', '$routeParams', 'toDoService'];
+        EditController.$inject = ['$scope', '$modalInstance', 'toDoService', 'toaster', 'toDoId'];
         return EditController;
     })();
     myToDoApp.EditController = EditController;
